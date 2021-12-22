@@ -19,7 +19,7 @@ import ImgNormal from "./imgNormal.json";
 function App() {
 
   const [images, shuffleImages] = useState([])
-  const imageSection = useRef();
+
 
   // get the all images from JSON
   /*useEffect(() => {
@@ -89,16 +89,7 @@ function App() {
     })
   }
 
-  function handleImageClick(e)
-  {
-    // const [count, setCount] = useState(0);
-    // const [todos, setTodos] = useState([])
-    console.log("handleImgClick()");
 
-    //setImages(...shuffleImages => { });
-
-
-  }
 
 
   return (
