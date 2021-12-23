@@ -10,7 +10,7 @@ export default function ImageCard({image})
   }
   
   return (
-      <div>
+      <div className="imageCard">
         <img src={image.image} id={image.id} onClick={e => imageClicked(image.name)} alt={image.name} />
       </div>
   );
