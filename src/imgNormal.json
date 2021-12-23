@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "name": "Baby Blue",
+    "image": "images/img000.png"
+  },
+  {
+    "id": 1,
+    "name": "Blue Gray",
+    "image": "images/img001.png"
+  },
+  {
+    "id": 2,
+    "name": "Blue",
+    "image": "images/img002.png"
+  },
+  {
+    "id": 3,
+    "name": "Bright Blue",
+    "image": "images/img003.png"
+  }
+]

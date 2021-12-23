@@ -1,0 +1,32 @@
+
+.title {
+  width: 100%;
+  text-align: center;
+  color: #2A77AE;
+  font-weight: bolder;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  width: 100%;
+  text-align: center;
+  color: #2A77AE;
+  font-weight: bolder;
+  margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+.imageCard{
+  margin: 5px;
+  border: 10px solid white;
+}
+
+.imgContainer:hover{
+  border-color: blue;
+}
