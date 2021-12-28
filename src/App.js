@@ -20,11 +20,10 @@ function App() {
   function startGame() {
     console.log("startGame()");
 
-    shuffleImages((previousShuffle) => {
-      console.log("shuffled: " + previousShuffle.map((img) => " " + img.name));
-      let newShuffle = previousShuffle.map((img) => img);
+    shuffleImages((images) => {
+      console.log("shuffled: " + images.map((img) => " " + img.name));
 
-      let end = newShuffle.length,
+      let end = images.length,
         idx;
 
       // While there remain elements to shuffle
@@ -33,10 +32,10 @@ function App() {
         idx = Math.floor(Math.random() * end--);
 
         // Swap with current element.
-        [newShuffle[idx], newShuffle[end]] = [newShuffle[end], newShuffle[idx]];
+        [images[idx], images[end]] = [images[end], images[idx]];
       }
-      console.log("shuffled: " + newShuffle.map((img) => " " + img.name));
-      return newShuffle;
+      console.log("shuffled: " + images.map((img) => " " + img.name));
+      return [...images];
     });
   }
 
