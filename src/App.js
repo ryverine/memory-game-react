@@ -1,8 +1,9 @@
+import "./App.css";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
+import { Subtitle, Title } from "./components/Title";
+
 import ImageSection from "./components/ImageSection";
-import {Title, Subtitle} from "./components/Title";
-import './App.css';
 import ImgNormal from "./imgNormal.json";
 
 /*state = {
@@ -14,44 +15,28 @@ import ImgNormal from "./imgNormal.json";
 */
 
 function App() {
+  const [images, shuffleImages] = useState(ImgNormal);
 
-  const [images, shuffleImages] = useState([])
-
-  function startGame()
-  {
+  function startGame() {
     console.log("startGame()");
 
+    shuffleImages((images) => {
+      console.log("shuffled: " + images.map((img) => " " + img.name));
 
-    shuffleImages(shuffled =>{
+      let end = images.length,
+        idx;
 
-      console.log("shuffled: " + shuffled)
+      // While there remain elements to shuffle
+      while (end) {
+        // Pick a remaining element...
+        idx = Math.floor(Math.random() * end--);
 
-      let currentImages = ImgNormal;
-      let newImages = [];
-  
-      while (newImages.length < 4)
-      {
-        var currentImageIndex =  Math.floor(Math.random()*currentImages.length);
-        var testImage = currentImages[currentImageIndex];
-        var foundImage = false;
-        for(var i = 0; i < newImages.length; i++)
-        {
-          console.log("testImage.name = " + testImage.name);
-          if (testImage.id === newImages[i].id)
-          {
-            foundImage = true;
-            break;
-          }
-        }
-  
-        if(!foundImage)
-        {
-          newImages.push(testImage);
-        }
+        // Swap with current element.
+        [images[idx], images[end]] = [images[end], images[idx]];
       }
-  
-      return newImages;
-    })
+      console.log("shuffled: " + images.map((img) => " " + img.name));
+      return [...images];
+    });
   }
 
   return (
