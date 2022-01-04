@@ -15,7 +15,7 @@ import ImgNormal from "./imgNormal.json";
 */
 
 function App() {
-  const [images, shuffleImages] = useState(ImgNormal);
+  const [images, shuffleImages] = useState([]);
 
   function startGame() {
     console.log("startGame()");
@@ -23,7 +23,9 @@ function App() {
     shuffleImages((images) => {
       console.log("shuffled: " + images.map((img) => " " + img.name));
 
-      let end = images.length,
+      let currentImages = ImgNormal;
+
+      let end = currentImages.length,
         idx;
 
       // While there remain elements to shuffle
@@ -32,10 +34,10 @@ function App() {
         idx = Math.floor(Math.random() * end--);
 
         // Swap with current element.
-        [images[idx], images[end]] = [images[end], images[idx]];
+        [currentImages[idx], currentImages[end]] = [currentImages[end], currentImages[idx]];
       }
-      console.log("shuffled: " + images.map((img) => " " + img.name));
-      return [...images];
+      console.log("shuffled: " + currentImages.map((img) => " " + img.name));
+      return [...currentImages];
     });
   }
 
