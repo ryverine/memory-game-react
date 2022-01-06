@@ -75,12 +75,18 @@ function App() {
 
   }
 
-  function alert()
+  function updateGame(img)
   {
-    //clickedImages.push(1);
-    //console.log("clickedImages.length = " + clickedImages.length)
 
-    console.log("alert()");
+    console.log("img.name: " + img.name);
+    
+    clickedImages.push(1);
+    console.log("clickedImages.length = " + clickedImages.length)
+    // need to pass image obj to updateGame
+    // check if image is already in clickedImages
+    // if not, score++, shuffleImages
+    // if so, gameOver = ture
+
 
     incrementScore(1);
     setImages(shuffleImages());
@@ -90,12 +96,26 @@ function App() {
   {
     if (gameOver) 
     {
-      return (
-        <>
-          <Title>GAME OVER</Title>
-          <Subtitle>Refresh to try again!</Subtitle>
-        </>
-      );
+      if(score === maxScore)
+      {
+        return (
+          <>
+            <Title>YOU WON!</Title>
+            <Subtitle>Refresh to play again!</Subtitle>
+            <div><span>Score: </span>{score} / {maxScore}</div>
+          </>
+        );
+      }
+      else
+      {
+        return (
+          <>
+            <Title>GAME OVER!</Title>
+            <Subtitle>Refresh to try again.</Subtitle>
+            <div><span>Score: </span>{score} / {maxScore}</div>
+          </>
+        );
+      }
     } 
     else
     {
@@ -105,7 +125,7 @@ function App() {
           <Subtitle>Subtitle</Subtitle>
           <div><span>Score: </span>{score}</div>
           <div>
-            <ImageSection images={images} funct={alert}/>
+            <ImageSection images={images} updateGame={updateGame}/>
           </div>
         </>
       );

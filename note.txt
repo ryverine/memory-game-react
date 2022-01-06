@@ -39,6 +39,7 @@ https://www.youtube.com/watch?v=-3lL8oyev9w
 
 React tutorial for beginners #20 Pass Function as Props
 https://www.youtube.com/watch?v=yH5Z-lSeV9Y
+https://github.com/anil-sidhu/react-17/tree/props-function
 
 Learn useState In 15 Minutes - React Hooks Explained
 https://www.youtube.com/watch?v=O6P86uwfdR0

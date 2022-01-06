@@ -13,7 +13,7 @@ import "./style.css";
 export default function ImageSection(props) {
   return (
     props.images.map(image => {
-      return <ImageCard key={image.id} image={image} src={image.image} name={image.name} funct={props.funct} />
+      return <ImageCard key={image.id} image={image} src={image.image} name={image.name} updateGame={props.updateGame} />
     })
   );
 }

@@ -18,9 +18,15 @@ export default function ImageCard(props)
 
   return (
     <span className="imageCard">
-      <img src={props.image.image} id={props.image.id} onClick={props.funct} alt={props.image.name} />
+      <img src={props.image.image} id={props.image.id} onClick={() => props.updateGame(props.image)} alt={props.image.name} />
     </span>
 );
 
+/*
+class ChildComponent2{
+      render(){
+  return (<Button onClick={()=>this.props.myFunction(param)}>SomeButton</Button>)
+    }
+*/
 }
 
