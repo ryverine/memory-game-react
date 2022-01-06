@@ -1,0 +1,129 @@
+rmrynard@gmail.com
+https://github.com/Robert-Rynard
+
+src\components\style.css
+
+
+1. clone the repo
+
+
+2. create a branch called frontend
+git checkout -b my-branch-name
+
+3. Check what branch you are on
+
+
+4. push to your branch
+git push -u origin my-branch-name
+
+
+Git & GitHub Tutorial for Beginners #8 - Branches
+https://www.youtube.com/watch?v=QV0kVNvkMxc
+
+Git Branches: List, Create, Switch to, Merge, Push, & Delete
+https://www.nobledesktop.com/learn/git/git-branches
+
+Full Git Tutorial (Part 6) - Pull Requests & Code Reviews
+https://www.youtube.com/watch?v=XmIlJYdBgvc
+
+
+
+
+===============================================================
+
+Using the State Hook
+https://reactjs.org/docs/hooks-state.html
+
+React Hooks Tutorial - 4 - useState with object
+https://www.youtube.com/watch?v=-3lL8oyev9w
+
+React tutorial for beginners #20 Pass Function as Props
+https://www.youtube.com/watch?v=yH5Z-lSeV9Y
+https://github.com/anil-sidhu/react-17/tree/props-function
+
+Learn useState In 15 Minutes - React Hooks Explained
+https://www.youtube.com/watch?v=O6P86uwfdR0
+
+
+
+Learn React In 30 Minutes
+https://www.youtube.com/watch?v=hQAHSlTtcmY
+
+Passing Functions to Components
+https://reactjs.org/docs/faq-functions.html
+
+
+Passing a function with parameters through props on reactjs
+https://stackoverflow.com/questions/41369497/passing-a-function-with-parameters-through-props-on-reactjs
+
+===============================================================
+
+
+Var, Let, and Const – What's the Difference?
+https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,9 +24,6 @@
 
 .imageCard{
   margin: 5px;
-  border: 10px solid white;
+  background-color: rgb(255, 187, 0);
 }
 
-.imgContainer:hover{
-  border-color: blue;
-}
