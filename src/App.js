@@ -13,63 +13,58 @@ function App() {
   const [score, setScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [images, shuffleImages] = useState([]);
+  const [images, setImages] = useState([]);
   const [clickedImages, setClickedImages] = useState([]);
 
 
   function incrementScore(scoreValue)
   {
     setScore(prevScore => prevScore + scoreValue);
-    console.log("Score: " + score);
+  }
+
+  function shuffleImages()
+  {
+    let currentImages = ImgNormal;// this will need to change based on difficulty selected
+
+    let end = currentImages.length,
+      idx;
+
+    // While there remain elements to shuffle
+    while (end) {
+      // Pick a remaining element...
+      idx = Math.floor(Math.random() * end--);
+
+      // Swap with current element.
+      [currentImages[idx], currentImages[end]] = [currentImages[end], currentImages[idx]];
+    }
+    // console.log("shuffled: " + currentImages.map((img) => " " + img.name));
+    return [...currentImages];
+
+    /*
+      sometimes the shuffle returns the images in the order they were already in.
+      This can be confusing for the player, so we need a way to know what order the images are in and to force the shuffle to always be a different order.
+    */
   }
 
   function startGame() {
 
-    // set score to 0
-    // set gameStarted to TRUE
-    // set gameOver to FALSE
     // set maxScore 
 
+    setScore(0);
     setGameStarted(true);
+    setGameOver(false);
+    setImages(shuffleImages());
 
-    shuffleImages((images) => {
-      let currentImages = ImgNormal;
-      let end = currentImages.length,
-        idx;
-
-      // While there remain elements to shuffle
-      while (end) {
-        // Pick a remaining element...
-        idx = Math.floor(Math.random() * end--);
-
-        // Swap with current element.
-        [currentImages[idx], currentImages[end]] = [currentImages[end], currentImages[idx]];
-      }
-      //console.log("shuffled: " + currentImages.map((img) => " " + img.name));
-      return [...currentImages];
-    });
   }
 
   function alert()
   {
-    console.log("Alert From App.js");
     clickedImages.push(1);
     console.log("clickedImages.length = " + clickedImages.length)
 
     incrementScore(1);
+    setImages(shuffleImages());
   }
-
-  /*return (
-    <>
-      <Title>Title</Title>
-      <Subtitle>Subtitle</Subtitle>
-      <div><span>Score: </span>{score}</div>
-      <div>
-        <button onClick={startGame}>Start!</button>
-        <ImageSection images={images} funct={alert}/>
-      </div>
-    </>
-  );*/
 
   if(gameStarted)
   {

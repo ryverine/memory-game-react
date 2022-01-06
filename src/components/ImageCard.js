@@ -17,9 +17,9 @@ export default function ImageCard(props)
   );*/
 
   return (
-    <div className="imageCard">
+    <span className="imageCard">
       <img src={props.image.image} id={props.image.id} onClick={props.funct} alt={props.image.name} />
-    </div>
+    </span>
 );
 
 }
