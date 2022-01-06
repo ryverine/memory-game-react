@@ -10,7 +10,10 @@ import ImgNormal from "./imgNormal.json";
 // import ImgHard from "./imgHard.json";
 
 function App() {
+  console.log("App()");
+
   const [score, setScore] = useState(0);
+  const [maxScore, setMaxScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [images, setImages] = useState([]);
@@ -19,11 +22,24 @@ function App() {
 
   function incrementScore(scoreValue)
   {
+    // console.log("incrementScore()");
     setScore(prevScore => prevScore + scoreValue);
+    var newScore = score + scoreValue;
+    //setScore(newScore);
+    console.log("Score: " + score);
+    console.log("newScore: " + newScore);
+    console.log("maxScore: " + maxScore);
+
+    if (newScore === maxScore) 
+    {
+      setGameOver(true);
+    }
   }
 
   function shuffleImages()
   {
+    console.log("shuffleImages()");
+
     let currentImages = ImgNormal;// this will need to change based on difficulty selected
 
     let end = currentImages.length,
@@ -46,21 +62,25 @@ function App() {
     */
   }
 
-  function startGame() {
-
-    // set maxScore 
-
+  function startGame() 
+  {
+    console.log("startGame()");
+    
     setScore(0);
     setGameStarted(true);
     setGameOver(false);
     setImages(shuffleImages());
 
+    setMaxScore(prevMaxScore => prevMaxScore + ImgNormal.length);// this will need to change based on difficulty
+
   }
 
   function alert()
   {
-    clickedImages.push(1);
-    console.log("clickedImages.length = " + clickedImages.length)
+    //clickedImages.push(1);
+    //console.log("clickedImages.length = " + clickedImages.length)
+
+    console.log("alert()");
 
     incrementScore(1);
     setImages(shuffleImages());
@@ -68,16 +88,28 @@ function App() {
 
   if(gameStarted)
   {
-    return (
-      <>
-        <Title>Title</Title>
-        <Subtitle>Subtitle</Subtitle>
-        <div><span>Score: </span>{score}</div>
-        <div>
-          <ImageSection images={images} funct={alert}/>
-        </div>
-      </>
-    );
+    if (gameOver) 
+    {
+      return (
+        <>
+          <Title>GAME OVER</Title>
+          <Subtitle>Refresh to try again!</Subtitle>
+        </>
+      );
+    } 
+    else
+    {
+      return (
+        <>
+          <Title>Title</Title>
+          <Subtitle>Subtitle</Subtitle>
+          <div><span>Score: </span>{score}</div>
+          <div>
+            <ImageSection images={images} funct={alert}/>
+          </div>
+        </>
+      );
+    }
   }
   else
   {
