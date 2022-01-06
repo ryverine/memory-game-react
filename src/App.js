@@ -17,7 +17,20 @@ function App() {
   const [clickedImages, setClickedImages] = useState([]);
 
 
+  function incrementScore(scoreValue)
+  {
+    setScore(prevScore => prevScore + scoreValue);
+    console.log("Score: " + score);
+  }
+
   function startGame() {
+
+    // set score to 0
+    // set gameStarted to TRUE
+    // set gameOver to FALSE
+    // set maxScore 
+
+    setGameStarted(true);
 
     shuffleImages((images) => {
       let currentImages = ImgNormal;
@@ -40,18 +53,50 @@ function App() {
   function alert()
   {
     console.log("Alert From App.js");
+    clickedImages.push(1);
+    console.log("clickedImages.length = " + clickedImages.length)
+
+    incrementScore(1);
   }
 
-  return (
+  /*return (
     <>
       <Title>Title</Title>
       <Subtitle>Subtitle</Subtitle>
+      <div><span>Score: </span>{score}</div>
       <div>
         <button onClick={startGame}>Start!</button>
         <ImageSection images={images} funct={alert}/>
       </div>
     </>
-  );
+  );*/
+
+  if(gameStarted)
+  {
+    return (
+      <>
+        <Title>Title</Title>
+        <Subtitle>Subtitle</Subtitle>
+        <div><span>Score: </span>{score}</div>
+        <div>
+          <ImageSection images={images} funct={alert}/>
+        </div>
+      </>
+    );
+  }
+  else
+  {
+    return (
+      <>
+        <Title>Title</Title>
+        <Subtitle>Subtitle</Subtitle>
+        <div>
+          <button onClick={startGame}>Start!</button>
+        </div>
+      </>
+    );
+  }
+
 }
 
 export default App;
