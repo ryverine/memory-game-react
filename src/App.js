@@ -79,17 +79,38 @@ function App() {
   {
 
     console.log("img.name: " + img.name);
+
+    if(clickedImages.length > 0)
+    {
+      var foundImage = false;
+      // check if image is already in clickedImages
+      for(var clickedImagesIndex = 0; clickedImagesIndex < clickedImages.length; clickedImagesIndex++)
+      {
+        if(img.name === clickedImages[clickedImagesIndex].name)
+        {
+          foundImage = true;
+          break;
+        }
+      }
     
-    clickedImages.push(1);
-    console.log("clickedImages.length = " + clickedImages.length)
-    // need to pass image obj to updateGame
-    // check if image is already in clickedImages
-    // if not, score++, shuffleImages
-    // if so, gameOver = ture
-
-
-    incrementScore(1);
-    setImages(shuffleImages());
+      if(foundImage)
+      {
+        setGameOver(true);
+      }
+      else
+      {
+        clickedImages.push(img);
+        incrementScore(1);
+        setImages(shuffleImages());
+      }
+      
+    }
+    else
+    {
+      clickedImages.push(img);
+      incrementScore(1);
+      setImages(shuffleImages());
+    }
   }
 
   if(gameStarted)

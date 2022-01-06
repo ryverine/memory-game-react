@@ -49,8 +49,12 @@ https://www.youtube.com/watch?v=O6P86uwfdR0
 Learn React In 30 Minutes
 https://www.youtube.com/watch?v=hQAHSlTtcmY
 
+Passing Functions to Components
+https://reactjs.org/docs/faq-functions.html
 
 
+Passing a function with parameters through props on reactjs
+https://stackoverflow.com/questions/41369497/passing-a-function-with-parameters-through-props-on-reactjs
 
 ===============================================================
 
